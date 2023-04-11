@@ -18,13 +18,12 @@ Next, update the `package.json` to use the information of your own project. You 
 ```js
 {
     "name": "name-of-your-npm-package",
-    "description": "A boilerplate to create npm package using TypeScript",
+    "description": "short description of your project",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/{YOUR_GITHUB_USERNAME}/{YOUR_REPOSITORY}.git"
     },
-    "author": "",
-    "license": "MIT",
+    "author": "your name",
     "bugs": {
         "url": "https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}/issues"
     },
@@ -50,7 +49,7 @@ To test your npm package locally, you can follow these steps:
 6. Once the package is installed, you can use it in your code and test it as needed.
 
 ## Publish Your NPM Package
-Once your codes are done and tested, you can publish your package to the NPM registry. First, run npm login to login to your NPM account.
+Once your codes are done and tested, you can publish your package to the NPM registry. First, run `npm login` to login to your NPM account.
 
 ### Making Your First Release:
 
