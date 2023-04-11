@@ -1,5 +1,5 @@
 {
-  "name": "@vannizhang/npm-package-boilerplate",
+  "name": "name-of-your-npm-package",
   "version": "1.0.0",
   "description": "A boilerplate to create npm package using TypeScript",
   "main": "dist/index.js",
@@ -7,6 +7,16 @@
   "files": [
     "dist/**/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{YOUR_GITHUB_USERNAME}/{YOUR_REPOSITORY}.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}/issues"
+  },
+  "homepage": "https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}#readme",
   "scripts": {
     "test": "jest --config jest.config.js",
     "clean": "rimraf dist",
@@ -24,16 +34,6 @@
       "jest --bail --findRelatedTests --passWithNoTests"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vannizhang/npm-package-boilerplate.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vannizhang/npm-package-boilerplate/issues"
-  },
-  "homepage": "https://github.com/vannizhang/npm-package-boilerplate#readme",
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
