@@ -1,7 +1,3 @@
-import {
-    greeting
-} from './greeting'
+import { greeting } from './greeting';
 
-export {
-    greeting
-}
+export { greeting };
