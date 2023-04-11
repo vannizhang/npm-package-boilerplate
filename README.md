@@ -170,7 +170,9 @@ On the other hand, `npm link` method is useful when you want to test your packag
 
 If you're working on a package that you plan to **publish to the npm registry**, it's recommended to use `npm pack` method to test and distribute your package. However, if you're working on a package that you only need to use in a separate project, npm link method might be more convenient and efficient for testing and development purposes.
 
-## Publish npm package
+## Add pre & post and life cycle scripts:
+
+Before publishing the package, let's add couple more scripts:
 
 `prepare` will run both BEFORE the package is packed and published, and on local npm install. Perfect for running building the code. Add this script to `package.json`:
 
@@ -228,4 +230,32 @@ This command will run BEFORE the commit is made. One idea is to run the lint her
     },
 }
 ```
+## Publish npm package
 
+### Making first release of this package:
+
+Run `npm login` to login to you NPM account.
+
+Now we can publish this package:
+
+```
+npm publish --access public
+```
+
+### Making patch/minor/major releases of this package:
+We will need to bump up a new version of the package:
+```shell
+# Patch release: Backward compatible bug fixes
+npm version patch
+
+# Minor release: Backward compatible new features
+npm version minor
+
+# Major release: Changes that break backward compatibility
+npm version major
+```
+
+Then publish again:
+```shell
+npm publish
+```
