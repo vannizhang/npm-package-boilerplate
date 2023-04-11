@@ -1,5 +1,6 @@
 {
   "name": "name-of-your-npm-package",
+  "version": "1.0.0",
   "description": "A boilerplate to create npm package using TypeScript",
   "repository": {
     "type": "git",
@@ -11,7 +12,6 @@
     "url": "https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}/issues"
   },
   "homepage": "https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}#readme",
-  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
