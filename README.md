@@ -138,6 +138,9 @@
         },
     }
     ```
+## Set up Eslint and Prettier
+Follow this [instruction](https://github.com/vannizhang/resources/issues/21#issuecomment-1225997871) to set up Eslint and Prettier.
+
 
 ## Test npm package locally
 
