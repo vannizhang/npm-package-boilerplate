@@ -30,12 +30,12 @@
     }
     ```
 
-    We also need to update the `package.json` to have `main`, `types` and `files` fields point yo `dist` folder
+    We also need to update the `package.json` to have `main`, `types` and `files` fields point yo `dist` folder.
     ```json
     {   
         //...
-        "main": "dist/index.js",
-        "types": "dist/index.d.ts",
+        "main": "dist/index.js", // The property main is important here since it will tell npm where it can import the modules from.
+        "types": "dist/index.d.ts", // The property types will tell Typescript and Code-editors where we can find the type definitions
         "files": [
             "dist/**/*"
         ],
@@ -169,3 +169,63 @@ Both `npm pack` and `npm link` methods have their own advantages and limitations
 On the other hand, `npm link` method is useful when you want to test your package locally in a separate project without having to install it each time. It creates a global symlink of your package, so any changes you make to the package will be reflected immediately in the linked project.
 
 If you're working on a package that you plan to **publish to the npm registry**, it's recommended to use `npm pack` method to test and distribute your package. However, if you're working on a package that you only need to use in a separate project, npm link method might be more convenient and efficient for testing and development purposes.
+
+## Publish npm package
+
+`prepare` will run both BEFORE the package is packed and published, and on local npm install. Perfect for running building the code. Add this script to `package.json`:
+
+```json
+{
+    "scripts": {
+        //...
+        "prepare" : "husky install && npm run build"
+    },
+}
+```
+
+`prepublishOnly` will run BEFORE prepare and ONLY on npm publish. Here we will run our test and lint to make sure we don’t publish bad code:
+
+```json
+{
+    "scripts": {
+        //...
+        "prepublishOnly" : "npm run test && npm run lint"
+    },
+}
+```
+
+`preversionwill` run before bumping a new package version. To be extra sure that we’re not bumping a version with bad code, why not run lint here as well?
+
+```json
+{
+    "scripts": {
+        //...
+        "preversion" : "npm run lint"
+    },
+}
+```
+
+`version` will run after a new version has been bumped. If your package has a git repository, like in this case, a commit and a new version-tag will be made every time you bump a new version. 
+
+This command will run BEFORE the commit is made. One idea is to run the lint here and so no ugly code will pass into the new version:
+
+```json
+{
+    "scripts": {
+        //...
+        "version" : "npm run lint && git add -A src"
+    },
+}
+```
+
+`postversion` will run after the commit has been made. A perfect place for pushing the commit as well as the tag.
+
+```json
+{
+    "scripts": {
+        //...
+        "postversion" : "git push && git push --tags"
+    },
+}
+```
+
