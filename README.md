@@ -121,3 +121,20 @@
         testEnvironment: 'node',
     };
     ```
+
+9. It is a good practice to clean the `./dist` folder before running `npm run build`. Unfortunately, there is no native way to do this in TypeScript, so we will use `rimraf`
+
+    ```
+    npm install rimraf --save-dev
+    ```
+
+    Add a script to your `package.json` file that cleans the dist folder:
+
+    ```json
+    {
+        "scripts": {
+            "clean": "rimraf dist",
+            "build": "npm run clean && tsc"
+        },
+    }
+    ```
