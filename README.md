@@ -138,3 +138,31 @@
         },
     }
     ```
+
+## Test npm package locally
+
+To test an npm package locally, you can follow these steps:
+
+1. Open the terminal or command prompt on your computer.
+2. Navigate to the directory where your npm package is located.
+3. Run `npm pack` command in your terminal, which will create a compressed tarball of your package in the root directory of your package (e.g. `vannizhang-npm-package-boilerplate-1.0.0.tgz`).
+4. Next, navigate to the directory where you want to test your package.
+5. Run `npm install /path/to/your/package.tgz` command in your terminal to install the package from the tarball.
+6. Once the package is installed, you can use it in your code and test it as needed.
+
+Alternatively, you can also use `npm link` to link your package globally, so that you can test it in a separate project without having to install it each time. Here are the steps to use npm link:
+
+1. Open the terminal or command prompt on your computer.
+2. Navigate to the directory where your npm package is located.
+3. Run `npm link` command in your terminal to create a global symlink of your package.
+4. Next, navigate to the directory where you want to test your package.
+5. Run `npm link <package-name>` command in your terminal to link your package to the current project.
+6. Once the package is linked, you can use it in your code and test it as needed.
+
+Both `npm pack` and `npm link` methods have their own advantages and limitations, and which method is better depends on your specific use case.
+
+`npm pack` method is useful when you want to distribute your package to others or publish it to the npm registry. It creates a compressed tarball of your package that can be easily shared with others. You can also use `npm pack` to test your package locally before publishing it.
+
+On the other hand, `npm link` method is useful when you want to test your package locally in a separate project without having to install it each time. It creates a global symlink of your package, so any changes you make to the package will be reflected immediately in the linked project.
+
+If you're working on a package that you plan to **publish to the npm registry**, it's recommended to use `npm pack` method to test and distribute your package. However, if you're working on a package that you only need to use in a separate project, npm link method might be more convenient and efficient for testing and development purposes.
