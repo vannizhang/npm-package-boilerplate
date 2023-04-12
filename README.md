@@ -17,13 +17,13 @@ npm install
 Next, update the `package.json` to use the information of your own project. You will need to update the following fields:
 ```js
 {
-    "name": "name-of-your-npm-package",
-    "description": "short description of your project",
+    "name": "{NAME_FOR_YOUR_NPM_PACKAGE}",
+    "description": "{DESCRIPTION_OF_YOUR_NPM_PACKAGE}",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/{YOUR_GITHUB_USERNAME}/{YOUR_REPOSITORY}.git"
     },
-    "author": "your name",
+    "author": "{YOUR_NAME}",
     "bugs": {
         "url": "https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}/issues"
     },
