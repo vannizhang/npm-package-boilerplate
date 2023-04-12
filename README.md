@@ -1,5 +1,5 @@
 # NPM Package Boilerplate
-This is a boilerplate that helps you create an npm package project using TypeScript. It includes the following settings:
+This is a boilerplate that helps you create a npm package project using TypeScript. It includes the following settings:
 
 - TypeScript
 - Jest
@@ -36,20 +36,32 @@ Now you can start working on your project by adding code to the `./src` folder.
 
 You can run `npm run test` to run unit tests that you create using Jest.
 
-To generate the compiled files in the `./dist` folder, run `npm run build`.
+## Commands and Script
+Here is a brief explanation of each of the commands/scripts defined in the The `scripts` field in the `package.json`:
+
+- `test`: Runs Jest test runner with the configuration defined in `jest.config.js` file.
+- `clean`: Deletes the `dist` directory using the `rimraf` command.
+- `build`: Runs `npm run clean` to delete the `dist` directory and then transpiles the TypeScript code using `tsc`.
+- `lint`: Runs ESLint on all `.tsx` and `.ts` files inside the `src` directory, using the `--cache` flag to speed up the linting process, and the `--fix` flag to automatically fix any linting errors it can.
+- `prepare`: Installs Husky git hooks and runs `npm run build` before the package is packed and published.
+- `prepublishOnly`: Runs `npm run test` and `npm run lint` before publishing to the registry. This is to ensure that the code is tested and conforms to the linting rules before it is published.
+- `version`: Runs `npm run lint` and adds all changes in the `src` directory to the git staging area. This is done before versioning, to ensure that only correctly formatted code is committed.
+- `postversion`: Pushes the changes to the remote repository and adds tags to the commit. This is done after the version has been bumped to ensure that the latest version of the code is pushed to the repository.
+
+To run any of these scripts, simply run `npm run <script name>` in the terminal. For example, to run the test script, you would run `npm run test`.
 
 ## Test Your NPM Package
 To test your npm package locally, you can follow these steps:
 
-1. Open the terminal or command prompt on your computer.
-2. Navigate to the directory where your npm package is located.
-3. Run `npm pack` command in your terminal, which will create a compressed tarball of your package in the root directory of your package (e.g. `package.tgz`).
-4. Next, navigate to the directory where you want to test your package.
-5. Run `npm install /path/to/your/package.tgz` command in your terminal to install the package from the tarball.
-6. Once the package is installed, you can use it in your code and test it as needed.
+1. Run `npm pack` command in your terminal, which will create a compressed tarball of your package in the root directory of this project (e.g. `package.tgz`).
+2. Next, navigate to the directory where you want to test your package.
+3. Run `npm install /path/to/your/package.tgz` command in your terminal to install the package from the tarball.
+4. Once the package is installed, you can use it in your code and test it as needed.
 
 ## Publish Your NPM Package
 Once your codes are done and tested, you can publish your package to the NPM registry. First, run `npm login` to login to your NPM account.
+
+Before publishing your package, there is no need to manually run the `npm run build` command as it will be executed automatically by the `prepare` script. This script is triggered when you run the `npm publish` command, and it ensures that your code is compiled and ready for distribution.
 
 ### Making Your First Release:
 
